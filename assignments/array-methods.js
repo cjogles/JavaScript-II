@@ -57,60 +57,90 @@ const runners = [
   { id: 50, first_name: "Shell", last_name: "Baine", email: "sbaine1d@intel.com", shirt_size: "M", company_name: "Gabtype", donation: 171 },
 ];
 
-// ==== Challenge 1: Use .forEach() ====
-// The event director needs both the first and last names of each runner for their running bibs. Combine both the first and last names and 
-// populate a new array called `fullNames`. This array will contain just strings.
-let fullNames = [];
-runners.forEach(function(runner) { // QUESTION: When I don't use all the method paramaters, how does it interpret what I do type in?
-  fullNames.push(runner.first_name + " " + runner.last_name);
-});
-console.log(fullNames);
+// // ==== Challenge 1: Use .forEach() ====
+// // The event director needs both the first and last names of each runner for their running bibs. Combine both the first and last names and 
+// // populate a new array called `fullNames`. This array will contain just strings.
+// let fullNames = [];
+// runners.forEach(function(runner) { // QUESTION: When I don't use all the method paramaters, how does it interpret what I do type in? Answer:
+// // the paramaters are defaulted as undefined I believe
+//   fullNames.push(runner.first_name + " " + runner.last_name);
+// });
+// console.log(fullNames);
 
-// ==== Challenge 2: Use .map() ====
-// The event director needs to have all the runners' first names in uppercase because the director BECAME DRUNK WITH POWER. Populate an array 
-// called `firstNamesAllCaps`. This array will contain just strings.
-let firstNamesAllCaps = [];
-runners.map(function(runner) { // QUESTION: Why is .map and .forEach any different here?
-  firstNamesAllCaps.push(runner.first_name.toUpperCase());
-});
-console.log(firstNamesAllCaps);
+// // ==== Challenge 2: Use .map() ====
+// // The event director needs to have all the runners' first names in uppercase because the director BECAME DRUNK WITH POWER. Populate an array 
+// // called `firstNamesAllCaps`. This array will contain just strings.
+// let firstNamesAllCaps = [];
+// runners.map(function(runner) { // QUESTION: Why is .map and .forEach any different here?
+//   firstNamesAllCaps.push(runner.first_name.toUpperCase());
+// });
+// console.log(firstNamesAllCaps);
 
-// ==== Challenge 3: Use .filter() ====
-// The large shirts won't be available for the event due to an ordering issue. We need a filtered version of the runners array, containing only 
-// those runners with large sized shirts so they can choose a different size. This will be an array of objects.
-let runnersLargeSizeShirt = [];
-runners.filter(function(runner) {
-  if (runner.shirt_size == "L") {
-    runnersLargeSizeShirt.push(runner.first_name);
-  }
-});
-console.log(runnersLargeSizeShirt);
+// // ==== Challenge 3: Use .filter() ====
+// // The large shirts won't be available for the event due to an ordering issue. We need a filtered version of the runners array, containing only 
+// // those runners with large sized shirts so they can choose a different size. This will be an array of objects.
+// let runnersLargeSizeShirt = [];
+// runners.filter(function(runner) {
+//   if (runner.shirt_size === "L") {
+//     runnersLargeSizeShirt.push(runner.first_name);
+//   }
+// });
+// console.log(runnersLargeSizeShirt);
 
-// ==== Challenge 4: Use .reduce() ====
-// The donations need to be tallied up and reported for tax purposes. Add up all the donations and save the total into a ticketPriceTotal 
-// variable.
+// // ==== Challenge 4: Use .reduce() ====
+// // The donations need to be tallied up and reported for tax purposes. Add up all the donations and save the total into a ticketPriceTotal 
+// // variable.
 
-let ticketPriceTotal = runners.reduce((sum, eachDonation) => {
-  return sum + eachDonation.donation;
-}, 0)
-console.log(ticketPriceTotal);
+// let ticketPriceTotal = runners.reduce((sum, eachDonation) => {
+//   return sum + eachDonation.donation;
+// }, 0)
+// console.log(ticketPriceTotal);
 
-// ==== Challenge 5: Be Creative ====
-// Now that you have used .forEach(), .map(), .filter(), and .reduce().  I want you to think of potential problems you could solve given 
-// the data set and the 5k fun run theme.  Try to create and then solve 3 unique problems using one or many of the array methods listed above.
+// // ==== Challenge 5: Be Creative ====
+// // Now that you have used .forEach(), .map(), .filter(), and .reduce().  I want you to think of potential problems you could solve given 
+// // the data set and the 5k fun run theme.  Try to create and then solve 3 unique problems using one or many of the array methods listed above.
 
-// Problem 1 --- some people cancelled! If given a first name, can you pass those names into a function and take them off the list and change
-//               the array?
+// // Problem 1 --- some people cancelled! If given a first name, can you pass those names into a function and take them off the list and change
+// //               the array?
 
-let newRunners = [];
-let removeRunners = runners.filter(function(runner) {
-  if (runners.first_name != "Charmain") {
-    newRunners.push(runners);
-  }
-  return newRunners;
-});
-console.log(removeRunners);
+// let newRunners = runners;
+// let removeRunner = newRunners.filter(runner => runner.first_name !=="Charmain");
 
-// Problem 2 --- some people want to change their shirt sizes, can you pass those names into a function and change their shirt size? 
+// console.log(removeRunner);
 
-// Problem 3 --- some people don't have working emails, could you add a phone number to each runner? 
+
+// // Problem 2 --- some people want to change their shirt sizes, can you pass those names into a function and change their shirt size? 
+// //               specifically Charmain wants to change his shirt size to "S"
+
+// function changeShirtSize (array, name, shirtSize) {
+//   let placeholder = array;
+//   for (let i = 0; i < placeholder.length; i++) {
+//     if (placeholder[i].first_name === name) {
+//       placeholder[i].shirt_size = shirtSize;
+//     }
+//   }
+//   console.log(placeholder);
+//   return placeholder;
+// }
+// let changeShirt = changeShirtSize(runners, "Charmain", "S");
+// console.log(changeShirt);
+
+
+// // Problem 3 --- Try adding a phone number property to all objects in "runners" array of objects!
+
+// let testArr = runners;
+
+// console.log(testArr);
+
+// function createPhoneNum(array) {
+//   for (let i = 0; i < array.length; i++) {
+//     array[i].phone_number = "1-800-555-5555";
+//   }
+//   return array;
+// }
+
+// console.log(createPhoneNum(testArr));
+
+
+
+
