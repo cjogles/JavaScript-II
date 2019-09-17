@@ -99,8 +99,18 @@ console.log(ticketPriceTotal);
 // Now that you have used .forEach(), .map(), .filter(), and .reduce().  I want you to think of potential problems you could solve given 
 // the data set and the 5k fun run theme.  Try to create and then solve 3 unique problems using one or many of the array methods listed above.
 
-// Problem 1
+// Problem 1 --- some people cancelled! If given a first name, can you pass those names into a function and take them off the list and change
+//               the array?
 
-// Problem 2
+let newRunners = [];
+let removeRunners = runners.filter(function(runner) {
+  if (runners.first_name != "Charmain") {
+    newRunners.push(runners);
+  }
+  return newRunners;
+});
+console.log(removeRunners);
 
-// Problem 3
+// Problem 2 --- some people want to change their shirt sizes, can you pass those names into a function and change their shirt size? 
+
+// Problem 3 --- some people don't have working emails, could you add a phone number to each runner? 
